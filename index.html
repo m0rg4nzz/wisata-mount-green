@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taman Wisata Alam Mount Green</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a onclick="switchPage('beranda')" class="nav-brand">Wisata Mount Green</a>
+            <ul class="nav-links">
+                <li><a onclick="switchPage('beranda')" class="nav-link active" data-target="beranda">Beranda</a></li>
+                <li><a onclick="switchPage('harga')" class="nav-link" data-target="harga">Harga Tiket</a></li>
+                <li><a onclick="switchPage('panduan')" class="nav-link" data-target="panduan">Cara Pesan</a></li>
+                <li><a onclick="switchPage('pesan')" class="nav-link" data-target="pesan">Pesan Tiket</a></li>
+                <li><a onclick="switchPage('kontak')" class="nav-link" data-target="kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Beranda -->
+        <section class="page-section active-page page-beranda">
+            <h1>Taman Wisata Alam Mount Green</h1>
+            <p>Nikmati keindahan panorama pegunungan yang sejuk, hamparan pinus yang asri, serta berbagai spot foto alam terbaik untuk liburan seru Anda.</p>
+            <hr>
+            <h2>Video Suasana &amp; Wahana Wisata</h2>
+            <div class="video-container">
+                <video width="550" controls>
+                    <source src="video-mount-green.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung pemutaran video.
+                </video>
+            </div>
+        </section>
+
+        <!-- Halaman Harga Tiket -->
+        <section class="page-section page-harga">
+            <h2>Daftar Harga &amp; Ketentuan Tiket</h2>
+            <p>Berikut adalah rincian tarif masuk per orang untuk hari biasa dan akhir pekan:</p>
+
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Jenis Tiket / Kategori</th>
+                        <th>Weekday (Senin - Jumat)</th>
+                        <th>Weekend (Sabtu - Minggu/Libur)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Tiket Masuk Utama (Per Orang)</b></td>
+                        <td>Rp35.000</td>
+                        <td>Rp50.000</td>
+                    </tr>
+                    <tr>
+                        <td><b>Tiket Akses Camping Ground</b></td>
+                        <td>Rp25.000</td>
+                        <td>Rp35.000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <b>Aturan Usia &amp; Keamanan Pengunjung:</b>
+                <p style="margin-top: 5px; margin-bottom: 0;">Anak-anak diperbolehkan masuk tanpa pengawasan orang tua/pendamping minimal berusia <b>14 tahun ke atas</b>. Di bawah usia tersebut wajib didampingi oleh orang tua atau wali dewasa demi keamanan.</p>
+            </div>
+        </section>
+
+        <!-- Cara Pesan -->
+        <section class="page-section page-panduan">
+            <h2>Panduan Pemesanan Tiket</h2>
+            <ol class="steps-list">
+                <li>Cek rincian tarif pada menu <b>Harga Tiket</b> untuk melihat perbedaan tarif Weekday dan Weekend serta aturan usia.</li>
+                <li>Buka halaman menu <b>Pesan Tiket</b> untuk memasukkan jumlah pengunjung.</li>
+                <li>Periksa total perkiraan pembayaran pada kotak di bagian bawah.</li>
+                <li>Klik tombol <b>Cetak E-Ticket</b> untuk mencetak rincian tiket secara resmi atau <b>Pesan via WhatsApp</b> untuk reservasi online.</li>
+            </ol>
+        </section>
+
+        <!-- Halaman Pesan Tiket -->
+        <section class="page-section page-pesan">
+            <h2>Formulir Pemesanan Tiket</h2>
+            <p>Silakan tentukan jenis tiket dan jumlah pengunjung pada menu di bawah ini:</p>
+            <ul class="category-list">
+                <li class="category-item">Pilih Kategori Tiket
+                    <ul class="sub-menu-list">
+                        <li>
+                            <div class="menu-item">
+                                <div class="menu-info">
+                                    <b>Tiket Masuk Utama (Per Orang)</b>
+                                    <span class="menu-price">Rp35.000 (Weekday) / Rp50.000 (Weekend)</span>
+                                </div>
+                                <div class="quantity-control">
+                                    <label>Jumlah:</label>
+                                    <input type="number" class="menu-qty" min="0" value="0" data-name="Tiket Masuk Utama" data-price="35000">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                <div class="menu-info">
+                                    <b>Tiket Akses Camping Ground</b>
+                                    <span class="menu-price">Rp25.000 (Weekday) / Rp35.000 (Weekend)</span>
+                                </div>
+                                <div class="quantity-control">
+                                    <label>Jumlah:</label>
+                                    <input type="number" class="menu-qty" min="0" value="0" data-name="Tiket Camping Ground" data-price="25000">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="checkout-box">
+                <div class="total-text">Total Perkiraan: <span class="total-price-text">Rp0</span></div>
+                <div class="button-group">
+                    <button type="button" class="btn-print" onclick="cetakTiket()">Cetak E-Ticket</button>
+                    <button type="button" class="btn-order-all" onclick="kirimPesanWhatsApp()">Pesan via WhatsApp</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontak -->
+        <section class="page-section page-kontak">
+            <h2>Lokasi &amp; Kontak Resmi</h2>
+            <p><b>Alamat Lokasi:</b> Jl. Raya Puncak KM. 88, Bogor, Jawa Barat</p>
+            <p><b>Jam Operasional:</b> Setiap Hari (08.00 – 18.00 WIB)</p>
+            <p><b>Layanan WhatsApp:</b> <a href="https://wa.me/6285882590157" target="_blank" class="contact-link">0858-8259-0157</a></p>
+        </section>
+    </main>
+
+    <!-- Konten Tersembunyi untuk Cetak E-Ticket -->
+    <div class="print-ticket-container" id="print-area">
+        <div class="ticket-header">
+            <h2>E-TICKET RESMI</h2>
+            <p>Taman Wisata Alam Mount Green</p>
+        </div>
+        <p><b>Tanggal Cetak:</b> <span id="print-date"></span></p>
+        <p><b>Status:</b> Lunas / Valid untuk Penukaran Masuk</p>
+        <br>
+        <table class="ticket-items">
+            <thead>
+                <tr>
+                    <th>Nama Tiket</th>
+                    <th>Jumlah</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="print-ticket-list"></tbody>
+        </table>
+        <div class="ticket-total" id="print-ticket-total">Total: Rp0</div>
+        <div class="ticket-footer">
+            <p>Terima kasih telah memesan tiket di Taman Wisata Alam Mount Green.</p>
+            <p>Harap tunjukkan e-ticket ini kepada petugas loket saat kedatangan.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Taman Wisata Alam Mount Green. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        function switchPage(pageName) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-page'));
+            document.querySelector('.page-' + pageName).classList.add('active-page');
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-target') === pageName) link.classList.add('active');
+            });
+            window.scrollTo(0, 0);
+        }
+
+        const inputs = document.querySelectorAll('.menu-qty');
+        const totalEl = document.querySelector('.total-price-text');
+
+        inputs.forEach(input => input.addEventListener('input', updateTotalPrice));
+
+        function updateTotalPrice() {
+            let total = 0;
+            inputs.forEach(inp => {
+                let qty = parseInt(inp.value) || 0;
+                if (qty > 0) total += qty * parseInt(inp.getAttribute('data-price'));
+            });
+            totalEl.textContent = 'Rp' + total.toLocaleString('id-ID');
+        }
+
+        function cetakTiket() {
+            let itemsHTML = "";
+            let total = 0;
+            let adaPesanan = false;
+
+            inputs.forEach(inp => {
+                let qty = parseInt(inp.value) || 0;
+                if (qty > 0) {
+                    adaPesanan = true;
+                    let name = inp.getAttribute('data-name');
+                    let price = parseInt(inp.getAttribute('data-price'));
+                    let sub = qty * price;
+                    total += sub;
+
+                    itemsHTML += `<tr>
+                        <td>${name}</td>
+                        <td>${qty} Pcs</td>
+                        <td>Rp${sub.toLocaleString('id-ID')}</td>
+                    </tr>`;
+                }
+            });
+
+            if (!adaPesanan) {
+                alert("Silakan masukkan jumlah tiket wisata terlebih dahulu sebelum dicetak!");
+                return;
+            }
+
+            document.getElementById('print-ticket-list').innerHTML = itemsHTML;
+            document.getElementById('print-ticket-total').textContent = "Total Keseluruhan: Rp" + total.toLocaleString('id-ID');
+            
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('print-date').textContent = new Date().toLocaleDateString('id-ID', options);
+
+            window.print();
+        }
+
+        function kirimPesanWhatsApp() {
+            let items = [];
+            let total = 0;
+            inputs.forEach(inp => {
+                let qty = parseInt(inp.value) || 0;
+                if (qty > 0) {
+                    let sub = qty * parseInt(inp.getAttribute('data-price'));
+                    total += sub;
+                    items.push(`- ${qty}x ${inp.getAttribute('data-name')} (Rp${sub.toLocaleString('id-ID')})`);
+                }
+            });
+
+            if (items.length === 0) {
+                alert("Pilih minimal satu tiket wisata terlebih dahulu!");
+                return;
+            }
+
+            let text = "Halo, saya ingin memesan tiket kunjungan wisata:\n\n" + items.join("\n") + `\n\n*Total: Rp${total.toLocaleString('id-ID')}*`;
+            window.open("https://wa.me/6285882590157?text=" + encodeURIComponent(text), '_blank');
+        }
+    </script>
+</body>
+</html>
